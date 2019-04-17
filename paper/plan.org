@@ -1,0 +1,36 @@
+#+TITLE: (Functional) Programming Strategies
+* Introduction
+- Programming strategies for systematically creating code.
+- We teach programming. Context / background on our teaching (type of student, Scala). However these strategies apply to any language that supports FP, such as Rust, Typescript, Haskell, and so on.
+- Traditional bag of syntax.
+- Why bag of syntax doesn't work. Doesn't guide students to using language features effectively. Particularly important in Scala (high level assembly, high dimensional design space)
+- Our alternative we call programming strategies. Our goal is to provide reasoning steps that go from problem statement to working code. Ideally the code is entirely derived from the reasoning.
+- The rest of this paper is laid out as follows: ... We assume the reader has some familiarity with the (functional) programming literature. We don't, for example, define the substitution model of evaluation or describe in detail what makes a monad.
+* Programmign Strategies
+- We have nine strategies, divided into three groups:
+  - Denotational strategies: algebraic data types; structural recursion, sequencing
+  - Architectural strategies: interpreters and algebras; reification; Church encoding; type classes
+  - General strategies: read the literature; follow the types
+- Describe strategies
+* Case Study
+- What is a stream processing system
+- Read the literature
+- Interpreter pattern
+- Reify
+- Structural recursion
+* Pedagogy
+- We have described the programming strategies. Now we describe how we teach them and some observations from teaching them.
+- The three layer model
+- Keyboard cat
+- Teaching order
+- Students don't readily separate strategy and implementation---reinforce this.
+- Students desire understanding. Reluctant to lean on strategies---though paradoxically experts are happier to work in an understanding free mode.
+* Related Work
+- HtDP
+* Discussion and Conclusions
+- Strategies work for part of the code, but there areas where they are less helpful: "glue code" and particularly writing to legacy APIs that don't have useful type information.
+- Parallels to design patterns are notable. What can we learn from this?
+- Program derivation long standing goal of a few different fields. What can we learn from these?
+- FP is taking over industry. Need body of programming knowledge comparable to that for OOP. Our strategies can provide some of this.
+- Our strategies are not novel. Widely recognised within academic FP. New way for academics to present their findings and make them relevant to industry.
+- Doing science would be nice.

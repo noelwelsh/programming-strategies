@@ -1,2 +1,13 @@
 *.class
 *.log
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.out
+*.run.xml
+*.xdv
+*.fls
+paper/programming-template
+paper/build/programming-strategies.pdf

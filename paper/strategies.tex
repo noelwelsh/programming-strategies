@@ -1,0 +1,112 @@
+\section{Programming Strategies}
+\label{sec:programming-strategies}
+
+In this section we describe in detail our programming strategies. We have nine strategies, divided into three groups:
+
+\begin{enumerate}
+\item \emph{Denotational strategies}: algebraic data types, and structural recursion.
+\item \emph{Architectural strategies}: interpreters and algebras; reification; Church encoding; type classes.
+\item \emph{General strategies}: read the literature; follow the types.
+\end{enumerate}
+
+For each strategy we give the conditions when it should be used; a detailed description of the strategy; and an example of its use. For some strategies we give additional notes that give context not used to the idiosyncracies of Scala.
+
+
+\subsection{Denotational Strategies}
+
+Denotational strategies are named in reference to denotational semantics\textbf{CITE}. In denotational semantics we give meaning to a program term by relating it to a mathematical concept we assume we already understand. In our denotational strategies we do the reverse: we start with a mathematical concept we want to realise and from that derive code. The majority of our students do not have a strong mathematical background so we do not emphasise this connection when teaching the strategies. In the description below we present the strategies in the same way we use with students.
+
+\subsubsection{Algebraic Data Types}
+\paragraph{Condition} Whenever data can be described using \emph{logical ors} or \emph{logical ands} it should be defined using an algebraic data type.
+
+\paragraph{Description} Algebraic data types are our main way of defining data. If the data description meets the conditions for this strategy the code that defines the data follows immediately.
+
+Algebraic data types consist of two sub-strategies, that for logical ors, also called \emph{sum types}, and that for logical ands, also called \emph{product types}.
+
+For a sum type, if \texttt{A} is a \texttt{B} \emph{or} \texttt{C} then we can immediately write the corresponding Scala
+
+\begin{lstlisting}[language=scala]
+  sealed trait A
+  final case class B() extends A
+  final case class C() extends A
+\end{lstlisting}
+
+For a product type, if \texttt{A} is a \texttt{B} \emph{and} \texttt{C} then we can immediately write the corresponding Scala
+
+\begin{lstlisting}[language=scala]
+  final case class A(b: B, c: C)
+\end{lstlisting}
+
+\paragraph{Example}
+\textbf{Example here}
+
+\paragraph{Notes} Scala does not support algebraic data types directly, unlike many other functional programming languages. Instead they are constructed using \texttt{sealed traits} and \texttt{final case classes} as show in the description and examples. There are some subtleties in encoding algebraic data types in Scala. For example we might use a \texttt{final case object} instead of a \texttt{final case class} if our type holds no data. We do not got into these here as they are not of interest to non-Scala programmers. Direct syntax for algebraic data types is slated for the next of version of Scala, known as Dotty, which will do away with these issues\textbf{CITE}.
+
+In mathematics we usually do not name fields in a product type. This is also the case in languages such as Haskell and O'Caml. In Scala we must always name the fields of a type.
+
+
+\subsubsection{Structural Recursion}
+\paragraph{Condition} Whenever implementing a transformation on an algebraic data type we can use structural recursion.
+
+\paragraph{Description} Structural recursion gives us a skeleton for implementing any transformation on an algebraic data type. Like algebraic data types the structural recursion pattern has sub-patterns for sum and product types.
+
+For a sum type, if \texttt{A} is a \texttt{B} \emph{or} \texttt{C} then we can immediately write the corresponding Scala
+
+\begin{lstlisting}[language=scala]
+  anA match {
+    case B() => ???
+    case C() => ???
+  }
+\end{lstlisting}
+
+The \texttt{???} indicates code that we must complete with a problem-specific implementation.
+
+For a product type, if \texttt{A} is a \texttt{B} \emph{and} \texttt{C} then we can immediately write the corresponding Scala
+
+\begin{lstlisting}[language=scala]
+  anA match {
+    case A(b, c) => ???
+  }
+\end{lstlisting}
+
+
+\paragraph{Example}
+
+\paragraph{Notes} In Scala we can implement structural recursion using pattern matching or polymorphism. We have only illustrated the pattern matching approach here as it's more common in other functional programming languages.
+
+
+
+\subsection{Architectural Strategies}
+
+\subsubsection{Interpreters and Algebras}
+\paragraph{Condition}
+\paragraph{Description}
+\paragraph{Example}
+
+\subsubsection{Reification}
+\paragraph{Condition}
+\paragraph{Description}
+\paragraph{Example}
+
+\subsubsection{Church Encoding}
+\paragraph{Condition}
+\paragraph{Description}
+\paragraph{Example}
+
+\subsubsection{Type Classes}
+\paragraph{Condition}
+\paragraph{Description}
+\paragraph{Example}
+
+
+\subsection{General Strategies}
+
+\subsubsection{Read the Literature}
+\paragraph{Condition}
+\paragraph{Description}
+\paragraph{Example}
+
+\subsubsection{Follow the Types}
+\paragraph{Condition}
+\paragraph{Description}
+\paragraph{Example}
