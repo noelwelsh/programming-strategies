@@ -6,7 +6,7 @@
 - Why bag of syntax doesn't work. Doesn't guide students to using language features effectively. Particularly important in Scala (high level assembly, high dimensional design space)
 - Our alternative we call programming strategies. Our goal is to provide reasoning steps that go from problem statement to working code. Ideally the code is entirely derived from the reasoning.
 - The rest of this paper is laid out as follows: ... We assume the reader has some familiarity with the (functional) programming literature. We don't, for example, define the substitution model of evaluation or describe in detail what makes a monad.
-* Programmign Strategies
+* Programming Strategies
 - We have nine strategies, divided into three groups:
   - Denotational strategies: algebraic data types; structural recursion, sequencing
   - Architectural strategies: interpreters and algebras; reification; Church encoding; type classes
